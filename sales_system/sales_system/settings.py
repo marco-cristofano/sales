@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'employee.apps.EmployeeConfig',
     'product.apps.ProductConfig',
+    'django_filters'
 ]
 
 MIDDLEWARE = [

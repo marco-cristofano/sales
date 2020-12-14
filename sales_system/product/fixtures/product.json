@@ -1,0 +1,19 @@
+[
+    {
+        "model": "product.brand",
+        "pk": 1,
+        "fields": {
+            "name": "Marca1",
+            "country": "pais1",
+            "address": "direccion1"}
+        }, 
+    {
+        "model": "product.brand",
+        "pk": 2,
+        "fields": {
+            "name": "Marca2",
+            "country": "pais2",
+            "address": "direccion2"
+        }
+    }
+]

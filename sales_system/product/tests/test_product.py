@@ -6,6 +6,18 @@ from product.models import (
 )
 
 
+class EjemploFixtureBrandTest(APITestCase):
+    url = '/apiV1/brand/'
+    fixtures = [
+        'product/fixtures/product.json',
+    ]
+
+    def test_product_list(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 2)
+
+
 class ProductRetrieveListTests(APITestCase):
     url = '/apiV1/product/'
 

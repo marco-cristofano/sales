@@ -15,7 +15,7 @@ from product.api import (
 )
 
 
-router = routers.SimpleRouter()
+router = routers.DefaultRouter()
 router.register(r'employee', EmployeeViewSet)
 router.register(r'telephone', TelephoneViewSet)
 router.register(r'brand', BrandViewSet)

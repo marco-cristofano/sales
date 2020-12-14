@@ -1,3 +1,4 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import (
     viewsets,
     status
@@ -19,6 +20,9 @@ from employee.models import (
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+    # Configuracion del filtrado simple
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['number']
 
     @action(detail=True, methods=['get'], url_path='basic')
     def basic_retrieve(self, request, pk=None):

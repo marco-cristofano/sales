@@ -49,7 +49,7 @@ class EployeeRetrieveListTests(APITestCase):
             telephone=t2
         )
 
-    def test_telephone_list(self):
+    def test_employee_list(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 2)

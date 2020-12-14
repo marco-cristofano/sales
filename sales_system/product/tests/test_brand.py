@@ -21,7 +21,7 @@ class BrandRetrieveListTests(APITestCase):
             address='address1'
         )
 
-    def test_telephone_list(self):
+    def test_brand_list(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 2)
@@ -29,7 +29,7 @@ class BrandRetrieveListTests(APITestCase):
         self.assertContains(response, 'name', count=2)
         self.assertContains(response, 'address', count=4)
 
-    def test_telephone_retrieve(self):
+    def test_brand_retrieve(self):
         brand = Brand.objects.first()
         response = self.client.get(self.url + str(brand.pk) + '/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -41,7 +41,7 @@ class BrandRetrieveListTests(APITestCase):
 class BrandCreateTests(APITestCase):
     url = '/apiV1/brand/'
 
-    def test_employee_all_attributes(self):
+    def test_brand_all_attributes(self):
         data = {
             'country': 'Argentina',
             'name': 'Marca',
@@ -52,7 +52,7 @@ class BrandCreateTests(APITestCase):
         self.assertEqual(Brand.objects.count(), 1)
         self.assertEqual(Brand.objects.get().name, 'Marca')
 
-    def test_employee_without_country(self):
+    def test_brand_without_country(self):
         data = {
             'name': 'Marca',
             'address': 'bsas'
@@ -60,7 +60,7 @@ class BrandCreateTests(APITestCase):
         response = self.client.post(self.url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
-    def test_employee_without_region_code(self):
+    def test_brand_without_region_code(self):
         data = {
             'country': '+54',
             'address': '151515151'
@@ -68,7 +68,7 @@ class BrandCreateTests(APITestCase):
         response = self.client.post(self.url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_employee_without_number(self):
+    def test_brand_without_number(self):
         data = {
             'name': '+54',
             'country': '0221'
